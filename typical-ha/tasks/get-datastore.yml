@@ -1,0 +1,16 @@
+--- 
+  - name: Gather info from ESXi datastore 
+    vmware_datastore_info:
+      hostname: '{{ esxi_hostname }}' 
+      username: '{{ vcenter_username }}' 
+      password: '{{ vcenter_password }}' 
+      validate_certs: false 
+    register: info 
+    delegate_to: localhost  
+
+  - set_fact:
+      datast={{ (info.datastores | sort(attribute='freeSpace') | last).name }}
+      datast_url="{{ (info.datastores | sort(attribute='freeSpace') | last).url }}"
+  - debug: var=datast
+  - debug: 
+       var="{{ (info.datastores | sort(attribute='freeSpace') | last).url }}"

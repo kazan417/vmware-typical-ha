@@ -1,0 +1,14 @@
+- name: Enable http client trafic on ESXi Host
+  delegate_to: localhost
+  community.vmware.vmware_host_firewall_manager:
+    hostname: '{{ esxi_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: '{{ esxi_hostname }}'
+    validate_certs: false
+#    cluster_name: cluster_name
+    rules:
+        - name: httpClient
+          enabled: true
+          allowed_hosts:
+            all_ip: true

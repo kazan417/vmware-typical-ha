@@ -1,0 +1,21 @@
+- name:  Clone a virtual machine from Linux template and customize
+  community.vmware.vmware_guest:
+    hostname: "{{ esxi_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ esxi_hostname }}"
+    validate_certs: false
+    state: present
+    template: templatevm
+    name: ha-lb1
+    folder: "{{ store_folder }}"
+#    networks:
+#      - name: VM Network
+#        ip: 192.168.10.11
+#        netmask: 255.255.255.0
+#    wait_for_ip_address: true
+#    customization:
+#      script_text: |
+#        #!/bin/bash
+#        touch /tmp/touch-from-playbook
+  delegate_to: localhost

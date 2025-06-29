@@ -1,0 +1,20 @@
+---
+- name: Create virtual machine on given ESXi hostname from ova
+  retries: 3
+  delay: 3
+  register: result
+  until: result is not failed
+  community.vmware.vmware_deploy_ovf:
+    hostname: '{{ esxi_hostname }}'
+    esxi_hostname: '{{ esxi_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+#    ovf: '{{ ova_file }}'
+    url: "{{disk_url}}"
+    name: "{{ item }}"
+#    wait_for_ip_address: true
+    validate_certs: false
+    datastore: "{{ datast }}"
+    power_on: false
+  delegate_to: localhost
+  loop: "{{ servers }}"

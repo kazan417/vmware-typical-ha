@@ -1,0 +1,13 @@
+---
+- name: Download virtual machine disk from official distributor
+  ansible.builtin.get_url:
+    url: "{{ disk_url }}"
+    owner: root
+    group: root
+    mode: 0644
+    dest: '{{ datast_url }}/alse-1.8.2.uu1-adv-vsphere-mg15.6.0-amd64.ova'
+    tmp_dest: '{{ datast_url }}'
+    checksum: 'sha256:{{sha_url}}'
+    validate_certs: no
+- set_fact:
+    ova_file="{{ datast_url }}/alse-1.8.2.uu1-adv-vsphere-mg15.6.0-amd64.ova"

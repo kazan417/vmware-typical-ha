@@ -1,0 +1,14 @@
+---
+# main tasks file for typical-ha
+  - name: get datastore info
+    import_tasks: get-datastore.yml
+  - name: enable http client trafic on esxi host
+    import_tasks: allow-http-client.yml
+#  - name: download virtual machine image
+#    import_tasks: download-disk.yml
+  - name: create template node from ova
+    import_tasks: create-node-from-ova.yml
+  - name: change VM resources
+    import_tasks: change-node-resources.yml
+#  - name: create virtual machines
+#    import_tasks: create-nodes.yml

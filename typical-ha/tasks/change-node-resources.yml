@@ -1,0 +1,22 @@
+---
+# tasks file for typical-ha
+- name: modify imported from ova VM properties
+  community.vmware.vmware_guest:
+    # This is hostname of particular ESXi server on which user wants VM to be deployed
+    esxi_hostname: "{{ esxi_hostname }}"
+    hostname: "{{ esxi_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: false
+    name: "{{ item }}"
+    state: present
+#    guest_id: otherLinuxGuest
+    hardware:
+      memory_mb: 512
+      num_cpus: 1
+      scsi: paravirtual
+#    wait_for_ip_address: true
+#    wait_for_ip_address_timeout: 60
+  delegate_to: localhost
+  register: deploy_vm
+  loop: "{{ servers }}"
