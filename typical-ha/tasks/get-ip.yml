@@ -1,0 +1,29 @@
+---
+#     - name: get ip of VMs
+#      gather_facts: no
+#  vars:
+#    vm_list:
+#      - alse182
+#      hosts: localhost
+#      tasks:
+  - name: Gather VMware guest facts
+    vmware_guest_info:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      datacenter: ha-datacenter
+      validate_certs: no
+      name: "{{ item }}"
+    loop: "{{ servers }}"
+    register: no_vm_result
+    delegate_to: localhost
+#  - name: res
+#    debug:
+#      msg: "{{ no_vm_result.results }}"
+#    delegate_to: localhost
+  - name: Get IPv4 address of VMs to add to DNS configuration
+    debug:
+      msg: "{{ no_vm_result.results | json_query(s_query) }}"
+    vars:
+     s_query: "[?instance.hw_name == '{{ item }}'].instance.ipv4"
+    loop: "{{ servers }}"

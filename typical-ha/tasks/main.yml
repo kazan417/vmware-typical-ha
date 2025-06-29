@@ -10,5 +10,7 @@
     import_tasks: create-node-from-ova.yml
   - name: change VM resources
     import_tasks: change-node-resources.yml
+  - name: get VM ip
+    import_tasks: get-ip.yml
 #  - name: create virtual machines
 #    import_tasks: create-nodes.yml
