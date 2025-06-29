@@ -1,2 +1,2 @@
-!/typical-ha/vars/*
-!/typical-ha/tests/*
+/typical-ha/vars/*
+/typical-ha/tests/*
