@@ -10,6 +10,7 @@ pyvmomi >=8.0.3.0.1
 vmware-vcenter
 vmware-vapi-common-client
 
+vmware.vmware.vms
 python3-pyvmomi
 sshpass
 Role Variables

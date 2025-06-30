@@ -1,0 +1,14 @@
+---
+- name: start virtual machines
+  community.vmware.vmware_guest:
+    # This is hostname of particular ESXi server on which user wants VM to be deployed
+    esxi_hostname: "{{ esxi_hostname }}"
+    hostname: "{{ esxi_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: false
+    name: "{{ item }}"
+    state: poweredon
+  delegate_to: localhost
+  register: deploy_vm
+  loop: "{{ servers }}"

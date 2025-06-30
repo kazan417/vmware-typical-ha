@@ -1,4 +1,28 @@
-- hosts: all
+---
+- name: create and configure virtual machines
+  hosts: esxi
   become: true
   roles:
     - role: typical-ha
+
+
+
+#- name: configure weservers
+#  hosts: webservers
+#  become: true
+#  tasks:
+#    - name: install webserver
+#      include_role:
+#        name: typical-ha
+#        tasks_from: install-nginx
+
+
+
+#- name: configure load balancers
+#  hosts: lb
+#  become: true
+#  tasks:
+#    - name: install load balancer
+#      include_role:
+#        name: typical-ha
+#        tasks_from: install-haproxy

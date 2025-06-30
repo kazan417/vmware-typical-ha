@@ -6,11 +6,14 @@
     import_tasks: allow-http-client.yml
 #  - name: download virtual machine image
 #    import_tasks: download-disk.yml
-  - name: create template node from ova
+  - name: create nodes from ova
     import_tasks: create-node-from-ova.yml
   - name: change VM resources
     import_tasks: change-node-resources.yml
-  - name: get VM ip
-    import_tasks: get-ip.yml
-#  - name: create virtual machines
+##  - name: get VM ip
+##    import_tasks: get-ip.yml
+#  - name: create virtual machines without ova (add iso)
 #    import_tasks: create-nodes.yml
+
+  - name: start virtual machines
+    import_tasks: poweron.yml
