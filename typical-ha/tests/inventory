@@ -1,0 +1,2 @@
+[esxi]
+192.168.193.128 ansible_user=root ansible_ssh_pass="{{ vcenter_password }}"

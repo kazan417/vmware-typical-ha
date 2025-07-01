@@ -1,0 +1,31 @@
+---
+# vars file for typical-ha
+#existing infrastructure variables
+#exsi_hostname or cluster
+    esxi_hostname: esxi1.localdomain
+    vcenter_username: root
+    vcenter_password: "{{ lookup('env','vmpw') }}"
+    esxi_ip: 192.168.193.128
+    hostname: vcenter_hostname
+#manually add datastore if you want specific (by default we create on most free storage)
+    datastore: local-store-1
+#creation variables
+    store_folder: /ha-datacenter/vm
+    cpus: 1
+    mem: 384
+#    store_folder2: /ha-datacenter/ha-lb2
+    sha_url: https://registry.astralinux.ru/artifactory/mg-generic/alse/vsphere/alse-1.8.2.uu1-adv-vsphere-mg15.6.0-amd64.ova.sha256
+    sha256: 0d1259b917a9b0265a029211309c23ef8b368271b95f5c43ad801ec75630e19a
+    disk_url: https://registry.astralinux.ru/artifactory/mg-generic/alse/vsphere/alse-1.8.2.uu1-adv-vsphere-mg15.6.0-amd64.ova
+    mydomain: mydomain
+    site1: site1.website.local
+    site2: site2.website.local
+    sites:
+      - site2.website.local
+      - site1.website.local
+    servers:
+      - ha-lb1
+      - ha-lb2
+      - ha-web1
+      - ha-web2
+      - dns
