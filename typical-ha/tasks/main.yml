@@ -15,5 +15,5 @@
 #  - name: create virtual machines without ova (add iso)
 #    import_tasks: create-nodes.yml
 
-  - name: start virtual machines
-    import_tasks: poweron.yml
+#  - name: start virtual machines
+#    import_tasks: poweron.yml

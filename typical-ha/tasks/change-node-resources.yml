@@ -12,8 +12,8 @@
     state: present
 #    guest_id: otherLinuxGuest
     hardware:
-      memory_mb: 512
-      num_cpus: 1
+      memory_mb: "{{ mem }}"
+      num_cpus: "{{ cpus }}"
       scsi: paravirtual
 #    wait_for_ip_address: true
 #    wait_for_ip_address_timeout: 60
