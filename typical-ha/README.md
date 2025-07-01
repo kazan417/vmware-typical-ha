@@ -5,7 +5,7 @@ creates a high-availible configuration in vmware.
 
 Requirements
 ------------
-access to vmware cluster is requires
+access to esxi vmware is requires
 pyvmomi >=8.0.3.0.1
 vmware-vcenter
 vmware-vapi-common-client
