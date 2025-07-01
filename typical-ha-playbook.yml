@@ -14,39 +14,38 @@
         name: typical-ha
         tasks_from: install-nginx
 ########fix /etc/hosts
-#    - name: copy site content
-#      copy: 
-#        src: typical-ha/templates/sites/default/data/ 
-#        dest: /var/www/html/ 
-#        owner: www-data
-#        mode: 0640
-#    - name: copy second site content
-#      copy: 
-#        src: typical-ha/templates/sites/default2/data/ 
-#        dest: /var/www/html2/
-#        mode: 0640
-#    - name: configure site 1
-#      template: 
-#        src: typical-ha/templates/sites/default/conf/default.j2
-#        dest: /etc/nginx/sites-available/default
-#        mode: 0644
-#    - name: configure site 2
-#      template: 
-#        src: typical-ha/templates/sites/default2/conf/default2.j2
-#        dest: /etc/nginx/sites-available/default2
-#        mode: 0644
-#    - name: Creating a symlink
-#      ansible.builtin.file:
-#        src: "/etc/nginx/sites-available/default2"
-#        dest: "/etc/nginx/sites-enabled/default2"
-#        state: link
+    - name: copy site content
+      copy: 
+        src: typical-ha/templates/sites/default/data/ 
+        dest: /var/www/html/ 
+        owner: www-data
+        mode: 0640
+    - name: copy second site content
+      copy: 
+        src: typical-ha/templates/sites/default2/data/ 
+        dest: /var/www/html2/
+        mode: 0640
+    - name: configure site 1
+      template: 
+        src: typical-ha/templates/sites/default/conf/default.j2
+        dest: /etc/nginx/sites-available/default
+        mode: 0644
+    - name: configure site 2
+      template: 
+        src: typical-ha/templates/sites/default2/conf/default2.j2
+        dest: /etc/nginx/sites-available/default2
+        mode: 0644
+    - name: Creating a symlink
+      ansible.builtin.file:
+        src: "/etc/nginx/sites-available/default2"
+        dest: "/etc/nginx/sites-enabled/default2"
+        state: link
   handlers:
     - name: restart nginx
       ansible.builtin.service:
         name: nginx
         state: restarted
 
-### ln to sites-enabled and reload nginx
 
 - name: configure load balancers
   hosts: lb
