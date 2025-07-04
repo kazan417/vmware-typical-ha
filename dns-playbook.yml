@@ -12,3 +12,18 @@
       include_role:
         name: typical-ha
         tasks_from: install-dns
+    - name: configure site 1
+      template:
+        src: typical-ha/templates/db.193.168.192
+        dest: /etc/bind/db.193.168.192
+        mode: 0644
+    - name: configure site 1
+      template:
+        src:  typical-ha/templates/db.local.ru
+        dest: /etc/bind/db.local.ru
+        mode: 0644
+    - name: configure site 1
+      template:
+        src: typical-ha/templates/named.conf.default-zones.j2
+        dest: /etc/bind/named.conf.default-zones
+        mode: 0644
