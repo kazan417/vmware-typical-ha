@@ -27,3 +27,25 @@
         src: typical-ha/templates/named.conf.default-zones.j2
         dest: /etc/bind/named.conf.default-zones
         mode: 0644
+
+
+- name: create and configure virtual machines
+  hosts: lb
+  become: true
+  roles:
+    - role: typical-ha
+    - name: configure site 1
+      template:
+        src: typical-ha/templates/resolv.conf
+        dest: /etc/resolv.conf
+        mode: 0644
+- name: create and configure virtual machines
+  hosts: web
+  become: true
+  roles:
+    - role: typical-ha
+    - name: configure site 1
+      template:
+        src: typical-ha/templates/resolv.conf
+        dest: /etc/resolv.conf
+        mode: 0644
