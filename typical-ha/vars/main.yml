@@ -19,11 +19,11 @@
     sha256: 0d1259b917a9b0265a029211309c23ef8b368271b95f5c43ad801ec75630e19a
     disk_url: https://registry.astralinux.ru/artifactory/mg-generic/alse/vsphere/alse-1.8.2.uu1-adv-vsphere-mg15.6.0-amd64.ova
     mydomain: mydomain
-    site1: site1.website.local
-    site2: site2.website.local
+    site1: sitename1.local.ru
+    site2: sitename1.local.ru
     sites:
-      - site2.website.local
-      - site1.website.local
+      - sitename1.local.ru
+      - sitename1.local.ru
     servers:
       - ha-lb1
       - ha-lb2

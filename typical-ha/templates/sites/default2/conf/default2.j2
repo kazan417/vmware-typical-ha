@@ -19,8 +19,8 @@
 # Default server configuration
 #
 server {
-	listen 80 site2.website.local;
-	listen [::]:80 site2.website.local;
+	listen 80 "{{ site2 }}";
+	listen [::]:80 "{{ site2 }}";
 
 	# SSL configuration
 	#
