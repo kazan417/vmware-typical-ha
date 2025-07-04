@@ -1,0 +1,17 @@
+$TTL 3h
+@   IN SOA dns.local.ru. dns.local.ru. (
+    2025040702 ; Это число тоже нужно менять
+    3h         ;
+    1h         ;
+    1w         ;
+    1h
+)
+
+      IN NS dns.local.ru.
+
+1   IN PTR dns.local.ru. ; Наш сервер
+
+134 IN PTR ha-lb1.local.ru.
+136 IN PTR ha-lb2.local.ru.
+133 IN PTR ha-web1.local.ru.
+135 IN PTR ha-web2.local.ru.
