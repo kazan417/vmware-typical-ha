@@ -1,0 +1,5 @@
+- name: Update the repository cache and install latest version of package "bind9"
+  ansible.builtin.apt:
+    name: bind9
+    state: latest
+    update_cache: yes

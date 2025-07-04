@@ -4,7 +4,8 @@
   become: true
   roles:
     - role: typical-ha
-
+###not forget to uncomment start all VM in tasks/main.yml
+###and change passwords for user astra
 - name: configure weservers
   hosts: webservers
   become: true

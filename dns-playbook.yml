@@ -1,0 +1,14 @@
+---
+- name: create and configure virtual machines
+  hosts: esxi
+  become: true
+  roles:
+    - role: typical-ha
+- name: configure dns
+  hosts: dns
+  become: true
+  tasks:
+    - name: install dns server
+      include_role:
+        name: typical-ha
+        tasks_from: install-dns
