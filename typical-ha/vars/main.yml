@@ -12,7 +12,7 @@
 #creation variables
     store_folder: /ha-datacenter/vm
     cpus: 1
-    mem: 384
+    mem: 328
 #    store_folder2: /ha-datacenter/ha-lb2
     sha_url: https://registry.astralinux.ru/artifactory/mg-generic/alse/vsphere/alse-1.8.2.uu1-adv-vsphere-mg15.6.0-amd64.ova.sha256
     sha256: 0d1259b917a9b0265a029211309c23ef8b368271b95f5c43ad801ec75630e19a
