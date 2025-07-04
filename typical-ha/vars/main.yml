@@ -2,7 +2,8 @@
 # vars file for typical-ha
 #existing infrastructure variables
 #exsi_hostname or cluster
-    esxi_hostname: esxi1.localdomain
+    #esxi_hostname: esxi1.localdomain
+    esxi_hostname: 192.168.193.128
     vcenter_username: root
     vcenter_password: "{{ lookup('env','vmpw') }}"
     esxi_ip: 192.168.193.128
