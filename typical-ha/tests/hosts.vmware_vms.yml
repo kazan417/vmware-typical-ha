@@ -1,0 +1,19 @@
+---
+  plugin: vmware.vmware.vms
+  strict: False
+  #esxi_hostname: 192.168.193.128
+  username: root
+  password: "{{ lookup('env','vmpw') }}"
+  hostname: 192.168.193.128
+  validate_certs: false
+  properties: 
+    - 'config.name'
+    - 'guest.ipAddress'
+  groups:
+    webservers: "'ha-web' in config.name"
+    lb: "'ha-lb' in config.name"
+  compose:
+    ansible_user: "'astra'"
+    ansible_ssh_pass: "'astra'"
+    host_key_checking: "'false'"
+    ansible_ssh_extra_args: "'-o StrictHostKeyChecking=no'"
